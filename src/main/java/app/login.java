@@ -1,7 +1,5 @@
 package app;
 
-
-
 import static app.PersonalInfoManager.readPersonalInfo;
 import static app.PersonalInfoManager.writePersonalInfo;
 import java.util.Scanner;

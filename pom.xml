@@ -7,11 +7,25 @@
     <groupId>cn.fengliangit</groupId>
     <artifactId>app</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <!-- Apache HttpClient依赖 -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version> <!-- 请检查最新的版本号 -->
 
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+    </dependencies>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
 
 </project>

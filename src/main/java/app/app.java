@@ -1,8 +1,5 @@
 package app;
 
-
-
-
 import static app.PersonalInfoManager.readInfo;
 import static app.PersonalInfoManager.readPersonalInfo;
 import static app.PersonalInfoManager.writeInfo;
