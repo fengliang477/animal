@@ -3,6 +3,7 @@ package app;
 import static app.PersonalInfoManager.readPersonalInfo;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
 /*
  * 该文件配置
  *1.名字
@@ -42,6 +43,17 @@ public class peizhi {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         return dateFormat.format(date);
+    }
+    public static String datechange(int day) {
+        // 获取当前日期
+        Calendar calendar = Calendar.getInstance();
+        Date currentDate = calendar.getTime();
+
+        // 在当前日期上增加一天
+        calendar.add(Calendar.DAY_OF_MONTH, day);
+        Date tomorrow = calendar.getTime();
+
+        return tomorrow.toString();
     }
 
     

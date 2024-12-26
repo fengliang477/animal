@@ -24,13 +24,13 @@ public class weather {
         }
     }
 
-    public static String getweather() {
+    public static String getweather(String city) {
         // 创建HttpClient实例
         HttpClient client = HttpClient.newHttpClient();
 
         // 创建HttpRequest实例，指定URL
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://v1.yiketianqi.com/free/week?appid=13225961&appsecret=4LrNgAPH&unescape=1&city=%E5%9B%9B%E5%B9%B3")) // 替换为你的API URL
+                .uri(URI.create("https://v1.yiketianqi.com/free/week?appid=13225961&appsecret=4LrNgAPH&unescape=1&city="+city)) // 替换为你的API URL
                 .build();
 
         // 发送GET请求
@@ -72,9 +72,9 @@ public class weather {
         return null;
     }
 
-    public static void getdateweather(String date) {
+    public static void getdateweather(String date, String city) {
         // 获取天气数据并直接处理
-        String jsonData = getweather();
+        String jsonData = getweather(city);
         String[] weatherInfo = dataweather(date, jsonData);
         if (weatherInfo != null) {
             System.out.println("日期：" + weatherInfo[0] + ", 天气：" + weatherInfo[1] + ", 白天气温：" + weatherInfo[2] + "℃, 夜间气温：" + weatherInfo[3] + "℃, 风向：" + weatherInfo[4] + ", 风力：" + weatherInfo[5]);
