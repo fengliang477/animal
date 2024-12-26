@@ -33,7 +33,7 @@ public class app {
     public static void menu() {
         peizhi p = new peizhi();
         System.out.println("请输入选项\t\t\t当前时间"+p.getCurrentDate()+" "+p.getCurrentTime());
-        System.out.println("1.健康度界面\n2.饱和度界面\n3.喂食界面\n4.宠物信息界面\n5.游戏");
+        System.out.println("1.健康度界面\n2.饱和度界面\n3.喂食界面\n4.宠物信息界面\n5.游戏\n6.实用工具");
         System.out.println("返回上一级，请输入0");
         int info[] = readInfo("D:\\Animal\\1.txt");
 
@@ -63,6 +63,17 @@ public class app {
                 System.out.println("当前金币数量:" + info2[2]);
                 menu();
                 break;
+
+            case 6:
+                System.out.println("1.天气查询");
+                System.out.println("返回上一级，请输入其他数字");
+                if (shuru() == 1) {
+                    System.out.println("开发中");
+                    break;
+
+                } else {
+                    menu();
+                }
 
             case 0:
                 System.exit(0);
@@ -237,5 +248,9 @@ public class app {
 
        
     }
+public static void wether() {
+   System.out.println("您想查询的城市是（不要带市，或区）");
 
+
+    }
 }
