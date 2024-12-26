@@ -235,7 +235,28 @@ public class app {
             return 0;
         }
 
+
+
        
+    }
+    public static void city11() {
+
+        String city;
+        String date;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入城市名称");
+        city = sc.nextLine();
+        System.out.println("请输入日期");
+        date = sc.nextLine();
+        weather weather=new weather();
+        weather.getdateweather(date,city);
+
+
+
+
+
+
+
     }
 
 }
