@@ -9,9 +9,6 @@ import java.util.Scanner;
  */
 public class login {
 
-    public static void login() {
-
-    }
 
     public static boolean createACharacter() {
         System.out.println("请输入名字");

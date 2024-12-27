@@ -38,11 +38,11 @@ public class app {
     }
 
     public static void menu() {
-        peizhi p = new peizhi();
-        System.out.println("请输入选项\t\t\t当前时间"+p.getCurrentDate()+" "+p.getCurrentTime());
+
+        System.out.println("请输入选项\t\t\t当前时间"+ peizhi.getCurrentDate()+" "+ peizhi.getCurrentTime());
         System.out.println("1.健康度界面\n2.饱和度界面\n3.喂食界面\n4.宠物信息界面\n5.游戏\n6.实用工具");
         System.out.println("返回上一级，请输入0");
-        int info[] = readInfo("D:\\Animal\\1.txt");
+        int[] info = readInfo("D:\\Animal\\1.txt");
 
         switch (shuru()) {
             case 1:
@@ -66,7 +66,7 @@ public class app {
             case 5:
                 int b=game(info[2]);
                 writeInfo("D:\\Animal\\1.txt", info[0], info[1], b);
-                int info2[] = readInfo("D:\\Animal\\1.txt");
+                int[] info2 = readInfo("D:\\Animal\\1.txt");
                 System.out.println("当前金币数量:" + info2[2]);
                 menu();
                 break;
@@ -91,9 +91,8 @@ public class app {
     }
 
     public static void health(int status) {
-        peizhi p = new peizhi();
         //status 状态0-100
-        System.out.println(p.name() + "当前健康度:" + status);
+        System.out.println(peizhi.name() + "当前健康度:" + status);
         System.out.print("当前状态:");
         if (status > 90) {
             System.out.println("健康");
@@ -121,8 +120,7 @@ public class app {
     //satiety 饱和度
     public static void satiety(int status) {
         //status 状态0-100
-        peizhi p = new peizhi();
-        System.out.println(p.name() + "当前饱和度：" + status);
+        System.out.println(peizhi.name() + "当前饱和度：" + status);
         System.out.print("当前状态：");
         if (status > 90) {
             System.out.println("饱了");
@@ -150,14 +148,14 @@ public class app {
 
     //喂食
     public static int feeding(int status) {
-        String s[] = {"冯亮", "文件夹", "文档", "高梓涵", "垃圾"};
+        String[] s = {"冯亮", "文件夹", "文档", "高梓涵", "垃圾"};
         System.out.println("1." + s[0] + "\t2." + s[1] + "\t3." + s[2] + "\t4." + s[3] + "\t5." + s[4]);
         System.out.println("请输入选项");
         Scanner sc = new Scanner(System.in);
         int w = sc.nextInt();
         System.out.println("请输入数量");
         int b = sc.nextInt();
-        int a[] = {25, 7, 9, 5, 4};
+        int[] a = {25, 7, 9, 5, 4};
         status = status + a[w - 1] * b;
         System.out.println(s[w] + "喂食成功");
         System.out.println("返回上一级，请输入0");
@@ -173,13 +171,13 @@ public class app {
 
     }
 
-    public static void jiese(int zhuang[]) {
-        peizhi p = new peizhi();
+    public static void jiese(int[] zhuang) {
+
 
         System.out.println("宠物当前状态信息");
-        System.out.println("名字：" + p.name());
-        System.out.println("性别：" + p.sex());
-        System.out.println("年龄：" + p.age());
+        System.out.println("名字：" + peizhi.name());
+        System.out.println("性别：" + peizhi.sex());
+        System.out.println("年龄：" + peizhi.age());
         System.out.println("健康度：" + zhuang[1]);
         System.out.println("饱和度：" + zhuang[0]);
         System.out.println("金币数量：" + zhuang[2]);
@@ -208,14 +206,12 @@ public class app {
                 guess = sc.nextInt();
             if (guess > number) {
                 System.out.println("老登，你傻逼呀，猜大啦，重新猜");
-                
-                i++;
 
             } else {
                 System.out.println("老登，你傻逼呀，猜小啦，重新猜");
-                
-                i++;
+
             }
+                i++;
             }
         }
         System.out.println("猜对了老登，滚吧");
@@ -229,13 +225,12 @@ public class app {
             if (csz()) {
                 System.out.println("恭喜你，获得了100金币");
                 jin=jin+100;
-                return jin;
-    
+
             }else {
                 System.out.println("你输了，获得了1金币");
                 jin=jin+1;
-                return jin;
             }
+            return jin;
         }else {
             
             return 0;
@@ -248,8 +243,10 @@ public class app {
         if (x== 1) {
             city11();
         }else if(x==0){
+            menu();
+        }else {
+            System.out.println("输入错误");
 
-            return;
         }
     }
     public static void city11() {
@@ -260,8 +257,7 @@ public class app {
         city = sc.nextLine();
         System.out.println("请输入日期");
         date = sc.nextLine();
-        weather tq=new weather();
-        tq.getdateweather(date,city);
+        weather.getdateweather(date,city);
     }
 
 }
