@@ -38,7 +38,12 @@ public class weather {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // 打印响应状态码和响应体
-            System.out.println("Status Code: " + response.statusCode());
+            //System.out.println("Status Code: " + response.statusCode());
+            if (response.statusCode() == 200){
+                System.out.println("获取天气成功");
+            }else {
+                System.out.println("获取天气失败，错误代码"+response.statusCode());
+            }
             return (response.body());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

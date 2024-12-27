@@ -27,13 +27,20 @@ public class app {
             createACharacter();
             menu();
         }
+        //角色注册判断
 
+    }
+    public static int shuru() {
+        Scanner sc = new Scanner(System.in);
+        int w = sc.nextInt();
+        return w;
+//获取用户输入
     }
 
     public static void menu() {
         peizhi p = new peizhi();
         System.out.println("请输入选项\t\t\t当前时间"+p.getCurrentDate()+" "+p.getCurrentTime());
-        System.out.println("1.健康度界面\n2.饱和度界面\n3.喂食界面\n4.宠物信息界面\n5.游戏");
+        System.out.println("1.健康度界面\n2.饱和度界面\n3.喂食界面\n4.宠物信息界面\n5.游戏\n6.实用工具");
         System.out.println("返回上一级，请输入0");
         int info[] = readInfo("D:\\Animal\\1.txt");
 
@@ -63,6 +70,10 @@ public class app {
                 System.out.println("当前金币数量:" + info2[2]);
                 menu();
                 break;
+                case 6:
+                    gongju();
+
+                    break;
 
             case 0:
                 System.exit(0);
@@ -76,6 +87,7 @@ public class app {
                         } else if (options == 3) {
                             System.out.println("退出");
                         } */
+        //主菜单
     }
 
     public static void health(int status) {
@@ -102,6 +114,7 @@ public class app {
         } else {
             System.exit(0);
         }
+        //健康度界面
 
     }
 
@@ -130,14 +143,10 @@ public class app {
         } else {
             System.exit(0);
         }
+        //饱和度界面
     }
 
-    public static int shuru() {
-        Scanner sc = new Scanner(System.in);
-        int w = sc.nextInt();
-        return w;
 
-    }
 
     //喂食
     public static int feeding(int status) {
@@ -207,11 +216,8 @@ public class app {
                 
                 i++;
             }
-            
             }
-            
         }
-        
         System.out.println("猜对了老登，滚吧");
         System.err.println("!!!!!!!!!!!!!!!");
         return true;
@@ -234,29 +240,28 @@ public class app {
             
             return 0;
         }
+    }
+    public static void gongju() {
+        System.out.println("1.天气查询\n2.开发中");
+        System.out.println("返回上一级，请输入0");
+        int x=shuru();
+        if (x== 1) {
+            city11();
+        }else if(x==0){
 
-
-
-       
+            return;
+        }
     }
     public static void city11() {
-
         String city;
         String date;
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入城市名称");
+        System.out.println("请输入城市名称,不要包含市，区，县");
         city = sc.nextLine();
         System.out.println("请输入日期");
         date = sc.nextLine();
-        weather weather=new weather();
-        weather.getdateweather(date,city);
-
-
-
-
-
-
-
+        weather tq=new weather();
+        tq.getdateweather(date,city);
     }
 
 }

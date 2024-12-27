@@ -11,6 +11,7 @@ import java.util.Calendar;
  *3.性别
  *4.当前时间
  *5.当前日期
+ *6.日期转换
  *
  */
 public class peizhi {
