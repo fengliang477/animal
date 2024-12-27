@@ -52,7 +52,7 @@ public class login {
 
         return false;
     }
-   public static void main(String[] args) {
+  /*public static void main(String[] args) {
     createACharacter();
-   }
+   }*/
 }

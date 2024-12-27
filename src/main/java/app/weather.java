@@ -22,6 +22,7 @@ public class weather {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //对获取的json数据处理
     }
 
     public static String getweather(String city) {
@@ -38,12 +39,18 @@ public class weather {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // 打印响应状态码和响应体
-            System.out.println("Status Code: " + response.statusCode());
+            //System.out.println("Status Code: " + response.statusCode());
+            if (response.statusCode() == 200){
+                System.out.println("获取天气成功");
+            }else {
+                System.out.println("获取天气失败，错误代码"+response.statusCode());
+            }
             return (response.body());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return null;
+        //获取天气数据(json格式),200为成功，但日期可能不对
 
     }
 
@@ -70,6 +77,7 @@ public class weather {
             e.printStackTrace();
         }
         return null;
+        //从json提取指定日期的天气数据(请勿直接调用)
     }
 
     public static void getdateweather(String date, String city) {
@@ -81,5 +89,9 @@ public class weather {
         } else {
             System.out.println("未找到指定日期的天气信息。");
         }
+        //获取指定日期的天气数据并处理
     }
+   /* public static void main(String[] args) {
+        getdateweather("2023-09-05", "北京");
+    }*/
 }
