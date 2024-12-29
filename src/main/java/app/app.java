@@ -7,7 +7,13 @@ import static app.login.createACharacter;
 import java.util.Scanner;
 
 public class app {
+static {
+        System.out.println("欢迎使用宠物养成系统");
+    int[] info = readInfo("D:\\Animal\\1.txt");
+    writeInfo("D:\\Animal\\1.txt",  peizhi.shuaijian(info[0]),  peizhi.shuaijian(info[1]), info[2]);
+    datejisuan.writeCurrentDateToFile("D:\\Animal\\date.txt");
 
+    }
     /**
      * 菜单界面 menu 健康界面 health 饱和度界面 satiety 喂食界面 feeding
      */
@@ -105,7 +111,7 @@ public class app {
         } else if (status > 10) {
             System.out.println("即将死亡");
         } else {
-            System.out.println("冯亮已经死了");
+            System.out.println(peizhi.name()+"已经死了");
         }
         System.out.println("返回上一级，请输入0");
         if (shuru() == 0) {
@@ -133,7 +139,7 @@ public class app {
         } else if (status > 10) {
             System.out.println("快要饿死了");
         } else {
-            System.out.println("冯亮已经饿死了");
+            System.out.println(peizhi.name()+"已经饿死了");
         }
         System.out.println("返回上一级，请输入0");
         if (shuru() == 0) {

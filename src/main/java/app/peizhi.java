@@ -1,6 +1,9 @@
 package app;
 
 import static app.PersonalInfoManager.readPersonalInfo;
+
+import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
@@ -15,6 +18,7 @@ import java.util.Calendar;
  *
  */
 public class peizhi {
+    final static double shuaijian = 0.3;
 
     
 
@@ -55,6 +59,16 @@ public class peizhi {
         Date tomorrow = calendar.getTime();
 
         return tomorrow.toString();
+    }
+    public static int shuaijian(int shuzhi) {
+        try {
+            int daysDiff = datejisuan.getDaysDifferenceFromFile("D:\\Animal\\date.txt");
+            daysDiff = (int) (daysDiff *shuaijian);
+            return shuzhi-daysDiff;
+        } catch (IOException | ParseException e) {
+            System.out.println("处理文件时发生错误：" + e.getMessage());
+            return 0;
+        }
     }
 
     
