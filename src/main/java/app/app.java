@@ -262,8 +262,11 @@ static {
         System.out.println("请输入城市名称,不要包含市，区，县");
         city = sc.nextLine();
         System.out.println("请输入日期");
-        date = sc.nextLine();
+        date = datejisuan.dategueifan(sc.nextLine());
         weather.getdateweather(date,city);
     }
+
+
+
 
 }

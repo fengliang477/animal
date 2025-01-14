@@ -49,4 +49,18 @@ public class datejisuan {
             return reader.readLine();
         }
     }
+
+    public static String dategueifan(String date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            // 将输入的字符串解析为日期对象
+            Date date2 = dateFormat.parse(date);
+            // 将日期对象格式化为字符串
+            return dateFormat.format(date2);
+        } catch (ParseException e) {
+            // 如果解析失败，抛出异常
+            throw new IllegalArgumentException("输入的日期格式不正确: " +date, e);
+        }
+    }
+
 }
