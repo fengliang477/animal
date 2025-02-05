@@ -23,8 +23,6 @@ public class kimipost {
         while (retries <= 3) {
             try {
 
-
-                yanchi();
                 // 构造请求参数（确保 messages 是一个 JSON 数组）
                 JSONArray messages = new JSONArray();
                 messages.put(new JSONObject().put("role", "user").put("content", message));
@@ -146,5 +144,12 @@ public class kimipost {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static String chat(String message, String conversationId, String model, int maxTokens) {
+        try {
+            return json(sendChatRequest(message, conversationId, model, maxTokens));
+        }catch (Exception e) {
+            e.printStackTrace();
+        }return null;
     }
 }
